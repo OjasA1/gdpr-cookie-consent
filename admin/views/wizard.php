@@ -2347,7 +2347,16 @@ function get_templates( $template_type ) {
 											</label>
 											<input type="hidden" name="gcc-br-enable" v-model="is_br_on">
 									</c-col>
-								</c-row>
+							</c-row>
+							<c-row v-show="is_gdpr || is_lgpd">
+								<div class="enable_fadp">
+									<c-col class="col-sm-2"><label><?php esc_attr_e( 'Enable FADP', 'gdpr-cookie-consent' ); ?></label></c-col>
+										<c-col class="col-sm-8">
+											<c-switch v-bind="labelIcon" v-model="is_br_on" id="gdpr-cookie-consent-br-on" variant="3d"  color="success" :checked="is_br_on" v-on:update:checked="onSwitchBREnable"></c-switch>
+											<input type="hidden" name="gcc-br-enable" v-model="is_br_on">
+										</c-col>
+								</div>
+							</c-row>
 
 							<!-- IAB geo selection for pro -->
 								<c-row class="ccpa-iab-selection iab-pro-geo-ques" v-show="is_ccpa" >
@@ -2463,6 +2472,18 @@ function get_templates( $template_type ) {
 									<div class="gdpr-pro-label-text" >Pro</div>
 								</div>
 						</div>
+						<c-row v-show="is_gdpr || is_lgpd">
+									<div class="enable_fadp">
+										<c-col class="col-sm-2"><label><?php esc_attr_e( 'Enable FADP', 'gdpr-cookie-consent' ); ?>
+											</label>
+											<div class="gdpr-pro-label"><div class="gdpr-pro-label-text">Pro</div></div>
+										</c-col>
+										<c-col class="col-sm-8">
+											<c-switch disabled v-bind="isGdprProActive ? labelIcon : labelIconNew" v-model="is_eu_on" id="gdpr-cookie-consent-eu-on" variant="3d" color="success" :checked="is_eu_on" v-on:update:checked="onSwitchEUEnable"></c-switch>
+											<input type="hidden" name="gcc-eu-enable" v-model="is_eu_on">
+										</c-col>
+									</div>
+						</c-row>
 
 						<!-- IAB free selection with Pro Tag  -->
 						<div class="geo-location-ques-container iab-free-geo-ques">

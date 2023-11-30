@@ -968,3 +968,20 @@ html {
 }.opacity_yes{
 	opacity: 0.7;
 }
+.enable_fadp{
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}.enable_fadp .col-sm-2{
+    display: flex;
+    flex-grow: 1;
+}
+.enable_fadp .col-sm-2 label{
+    color: #000;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-wrap: nowrap;
+}

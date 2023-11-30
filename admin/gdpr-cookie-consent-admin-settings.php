@@ -241,6 +241,27 @@ if ( isset( $_SERVER['PHP_SELF'] ) ) {
 										<input type="hidden" name="gcc-gdpr-policy" v-model="gdpr_policy">
 									</c-col>
 								</c-row>
+								<?php if ( ! $is_pro_active ) : ?>
+									<c-row v-show="is_gdpr || is_lgpd">
+										<c-col class="col-sm-4"><label><?php esc_attr_e( 'Enable FADP', 'gdpr-cookie-consent' ); ?>
+											</label>
+											<div class="gdpr-pro-label"><div class="gdpr-pro-label-text">Pro</div></div>
+										</c-col>
+										<c-col class="col-sm-8">
+											<c-switch disabled v-bind="isGdprProActive ? labelIcon : labelIconNew" v-model="is_eu_on" id="gdpr-cookie-consent-eu-on" variant="3d" color="success" :checked="is_eu_on" v-on:update:checked="onSwitchEUEnable"></c-switch>
+											<input type="hidden" name="gcc-eu-enable" v-model="is_eu_on">
+										</c-col>
+									</c-row>
+								<?php endif ?>
+								<?php if (  $is_pro_active ) : ?>
+								<c-row v-show="is_gdpr || is_lgpd">
+									<c-col class="col-sm-4"><label><?php esc_attr_e( 'Enable FADP', 'gdpr-cookie-consent' ); ?></label></c-col>
+										<c-col class="col-sm-8">
+											<c-switch v-bind="labelIcon" v-model="is_br_on" id="gdpr-cookie-consent-br-on" variant="3d"  color="success" :checked="is_br_on" v-on:update:checked="onSwitchBREnable"></c-switch>
+											<input type="hidden" name="gcc-br-enable" v-model="is_br_on">
+										</c-col>
+									</c-row>
+									<?php endif ?>
 								<c-row v-show="is_gdpr">
 									<c-col class="col-sm-4"><label><?php esc_attr_e( 'Message Heading', 'gdpr-cookie-consent' ); ?> <tooltip text="<?php esc_html_e( 'Leave it blank, If you do not need a heading.', 'gdpr-cookie-consent' ); ?>"></tooltip></label></c-col>
 									<c-col class="col-sm-8">
