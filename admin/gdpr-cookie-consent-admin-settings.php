@@ -587,6 +587,19 @@ if ( isset( $_SERVER['PHP_SELF'] ) ) {
 									</c-row>
 								<?php endif ?>
 								<?php do_action( 'gdpr_consent_settings_data_reqs' ); ?>
+								<!-- Accept services for bot -->
+								<?php if ( ! $is_pro_active ) : ?>
+									<c-row>
+										<c-col class="col-sm-4 relative"><label><?php esc_attr_e( 'Automatically accept all services for bots', 'gdpr-cookie-consent' ); ?>
+										<tooltip text="<?php esc_html_e( ' According to GDPR Article 1, bots are exempt and cannot provide consent for personal data processing or cookie usage. Blocking content with a cookie banner may make your site seem slow to bots. Hence, it\'s advisable to permit bot browsing without consent while maintaining service access.', 'gdpr-cookie-consent' ); ?>"></tooltip></label>
+											<div class="gdpr-pro-label absolute" style="right: -7px;"><div class="gdpr-pro-label-text">Pro</div></div>
+										</c-col>
+										<c-col class="col-sm-8">
+											<c-switch disabled v-bind="isGdprProActive ? labelIcon : labelIconNew" variant="3d" color="success"></c-switch>
+										</c-col>
+									</c-row>
+								<?php endif ?>
+								<?php do_action( 'gdpr_consent_settings_accept_services_bots' ); ?>
 								<?php if ( ! $is_pro_active ) : ?>
 									<c-row>
 										<c-col class="col-sm-4 relative"><label><?php esc_attr_e( 'Restrict Pages and/or Posts', 'gdpr-cookie-consent' ); ?> <tooltip text="<?php esc_html_e( 'Restrict Pages and/or Posts during scanning of your website for cookies.', 'gdpr-cookie-consent' ); ?>"></tooltip>
