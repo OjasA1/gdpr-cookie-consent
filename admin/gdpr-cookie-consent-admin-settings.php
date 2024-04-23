@@ -362,7 +362,7 @@ $api_user_plan     = $this->settings->get_plan();
 									if ( $geo_options['enable_geotargeting'] == 'false' ): ?>
 										<div class="overlay_eu_visitors">
 											<div class="overlay_eu_visitors_message">
-												<?php esc_attr_e( 'To enable this feature, enable the geotargeting and integrate with MaxMind key' ); ?>
+												<?php esc_attr_e(  'To enable this feature, enable the geotargeting and integrate with MaxMind key' ); ?>
 											</div>
 										 </div>
 									<?php endif; ?>	
