@@ -364,7 +364,7 @@ $api_user_plan     = $this->settings->get_plan();
 											<div class="overlay_eu_visitors_message">
 												<?php esc_attr_e( 'To enable this feature, enable the geotargeting and integrate with MaxMind key' ); ?>
 											</div>
-										</div>
+										 </div>
 									<?php endif; ?>	
 									<c-col class="col-sm-4"><label><?php esc_attr_e( 'Show only for EU visitors', 'gdpr-cookie-consent' ); ?></label></c-col>
 									<c-col class="col-sm-8">
